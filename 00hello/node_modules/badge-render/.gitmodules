@@ -1,0 +1,3 @@
+[submodule "browser-badge"]
+	path = browser-badge
+	url = https://github.com/substack/browser-badge.git
