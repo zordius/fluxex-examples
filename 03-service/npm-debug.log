@@ -1,0 +1,35 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/travis/.nvm/v0.11.14/bin/node',
+1 verbose cli   '/home/travis/.nvm/v0.11.14/bin/npm',
+1 verbose cli   'run-script',
+1 verbose cli   'disc' ]
+2 info using npm@2.0.0
+3 info using node@v0.11.14
+4 verbose run-script [ 'predisc', 'disc', 'postdisc' ]
+5 info predisc fluxex-example@0.0.1
+6 info disc fluxex-example@0.0.1
+7 verbose unsafe-perm in lifecycle true
+8 info fluxex-example@0.0.1 Failed to exec disc script
+9 verbose stack Error: Exit status 1
+9 verbose stack     at ChildProcess.<anonymous> (/home/travis/.nvm/v0.11.14/lib/node_modules/npm/lib/utils/lifecycle.js:212:16)
+9 verbose stack     at ChildProcess.emit (events.js:110:17)
+9 verbose stack     at maybeClose (child_process.js:1000:16)
+9 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:1072:5)
+10 verbose pkgid fluxex-example@0.0.1
+11 verbose cwd /home/travis/build/zordius/fluxex-examples/03-service
+12 error Linux 2.6.32-042stab090.5
+13 error argv "/home/travis/.nvm/v0.11.14/bin/node" "/home/travis/.nvm/v0.11.14/bin/npm" "run-script" "disc"
+14 error node v0.11.14
+15 error npm  v2.0.0
+16 error code ELIFECYCLE
+17 error fluxex-example@0.0.1 disc: `gulp disc_app`
+17 error Exit status 1
+18 error Failed at the fluxex-example@0.0.1 disc script.
+18 error This is most likely a problem with the fluxex-example package,
+18 error not with npm itself.
+18 error Tell the author that this fails on your system:
+18 error     gulp disc_app
+18 error You can get their info via:
+18 error     npm owner ls fluxex-example
+18 error There is likely additional logging output above.
+19 verbose exit [ 1, true ]
