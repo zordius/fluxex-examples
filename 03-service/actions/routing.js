@@ -7,11 +7,11 @@ router.addRoute('/search', ['search', page.search]);
 
 // The single routing action can be used at both server/client side.
 module.exports = function () {
-    var path = this.getStore('page').get('url.pathname'),
+    var path = this.getStore('page').get('url').pathname,
         match = router.match(path);
 
     if (!match) {
-        return Promise.reject(new Error('no matched route'));
+        return Promise.reject(new Error('no matched route for:' + path));
     }
 
     this.dispatch('UPDATE_ROUTING', {
