@@ -1,4 +1,7 @@
 var config = {
+  allScriptsTimeout: 30000,
+  getPageTimeout: 30000,
+
   job_basename: require('path').basename(process.cwd()) + '_' + process.env.TRAVIS_JOB_ID,
 
   sauceSeleniumAddress: 'localhost:4445/wd/hub',
@@ -13,6 +16,7 @@ var config = {
     {browserName: 'internet explorer', version: 11, platform: 'Windows 8.1'},
     {browserName: 'internet explorer', version: 10, platform: 'Windows 8'},
     {browserName: 'internet explorer', version: 9, platform: 'Windows 7'},
+    {browserName: 'internet explorer', version: 8, platform: 'Windows XP'},
     {browserName: 'Android', version:'4.4', platform: 'Linux'},
     {browserName: 'Android', version:'4.1', platform: 'Linux'},
     {browserName: 'Android', version:'4.0', platform: 'Linux'},
