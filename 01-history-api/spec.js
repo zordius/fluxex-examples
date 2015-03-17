@@ -11,16 +11,15 @@ describe('React server side rendering', function () {
 });
 
 describe('React client side binding', function () {
-    var agent, isIE;
+    var isIE;
 
     try {
-        agent = window.navigator.userAgent;
-        isIE = agent.match(/MSIE (\d+)/);
+        isIE = window.navigator.userAgent.agent.match(/MSIE (\d+)/);
     } catch (E) {
         // DO NOTHING
     }
 
-    ((isIE && isIE[1] < 9) ? it.skip : it)('should handle button click', function () {
+    it('should handle button click', function () {
         browser.get('product?id=124');
         browser.driver.executeScript('return window.test=1');
         element.all(by.css('ul li a')).get(0).click();
@@ -29,7 +28,14 @@ describe('React client side binding', function () {
                 return url.match(/id=123/);
             });
         });
+
         expect(element(by.css('div span')).getInnerHtml()).toMatch(/12300/);
+
+        // Do not test IE < 10 which do not support history.pushState
+        if (isIE && isIE[1] < 10) {
+            return;
+        }
+
         browser.driver.executeScript('return window.test').then(function (value) {
             expect(value).toBe(1);
         });
