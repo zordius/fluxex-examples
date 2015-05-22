@@ -28,6 +28,9 @@ gulp.task('test_server', ['buildall'], function () {
         setTimeout(function () {
             gulp.start(['test_end_protractor']);
         }, 1000);
+    }).on('quit', function () {
+        console.log('end process...');
+        process.exit(0);
     });
 });
 
@@ -43,10 +46,8 @@ gulp.task('generate_badge_png', ['generate_badge_json'], execTask(
     'badge-render badge.json badge.html --png badge.png --scale 0.7 -width 490 -height 60'
 ));
 
-gulp.task('test_end_protractor', ['generate_badge_png'], function () {
+gulp.task('test_end_protractor', ['generate_badge_png'], function (cb) {
     console.log('stop nodemon....');
     nodemon.emit('quit');
-    console.log('end process...');
-    process.exit();
-    process.kill(process.pid, 'SIGTERM');
+    cb();
 });
